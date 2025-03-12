@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+{% block content %}
+
+<section class="logo-container">
+  <div class="car-container">
+    <img src="{% static 'images/splash.svg' %}" alt="The Car Collector Car" />
+  </div>
+  <img src="{% static 'images/logotype.png' %}" alt="Text reads: Car Collector" />
+</section>
+
+{% endblock %}

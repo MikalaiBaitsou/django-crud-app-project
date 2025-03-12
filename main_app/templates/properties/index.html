@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/properties/property-index.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <h1>Property List</h1>
+    <img src="{% static 'images/cool-property.svg' %}" alt="A cool property" />
+    <img src="{% static 'images/happy-property.svg' %}" alt="A happy property" />
+    <img src="{% static 'images/teacup-property.svg' %}" alt="A property in a teacup" />
+    <img src="{% static 'images/property-in-box.svg' %}" alt="A property in a box" />
+</section>
+
+<section class="card-container">
+    {% for property in properties %}
+    <div class="card">
+        <a href="{% url 'properties-detail' property.id %}">
+            <div class="card-content">
+                <div class="card-img-container">
+                    <img src="{% static 'images/sk8r-boi-property.svg' %}" alt="A skater boy property" />
+                </div>
+                <h2 class="card-title">{{ property.make }}</h2>
+                {% if property.year > 0 %}
+                <p>A {{ property.year }} year old {{ property.model }}</p>
+                {% else %}
+                <p>A {{ property.model }} brand new.</p>
+                {% endif %}
+                <p><small>{{ property.description }}</small></p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+
+
+
+{% endblock %}
