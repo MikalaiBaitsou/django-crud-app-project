@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+{% block content %}
+
+<div class="page-header">
+
+    <!-- django gives us an variable name <model_name> is lowercase
+    or the word object, so we have car -->
+    <!-- when we are editing car or object would be the car who were trying 
+    to edit
+
+    when we are creating car or object would None, because there is not car -->
+
+    {% if object %}
+    <h1>Edit {{ object.name }}</h1>
+    {% else %}
+    <h1>Add a Property</h1>
+    {% endif %}
+    <!-- <img src="{% static 'images/nerd-car.svg' %}" alt="A property using a computer" /> -->
+</div>
+
+<!-- we leave the action blank because the form we submit to the same url 
+that was requested to get the form in our case that would cars/create -->
+<form action="" method="post" class="form-container">
+    <!-- see-surf token (cross site resource foregery token) -->
+    <!-- must be included on all django forms, basically helps django check 
+   that the form came from a known client -->
+    {% csrf_token %}
+    <table>
+        <!-- we get a form variable that is made based on the model fields we included
+    in our class based view fields attribute  -->
+        <!-- as_table, as_p, as_ul, or just the form with no wrapper tags -->
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn submit">Submit!</button>
+</form>
+
+{% endblock %}

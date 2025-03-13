@@ -11,21 +11,20 @@
 {% block content %}
 <section class="property-container">
     <div class="property-img">
-        <img src="{% static 'images/sk8r-boi-property.svg' %}" alt="A skater boy property" />
+        <!-- <img src="{% static 'images/sk8r-boi-property.svg' %}" alt="A skater boy property" /> -->
     </div>
     <div class="property-details">
         <h1>{{ property.location }}</h1>
-        {% if property.year > 0 %}
-        <h2>A {{ property.year }} year old {{ property.model }}</h2>
-        {% else %}
-        <h2>A {{ property.model }} brand new.</h2>
-        {% endif %}
+        <!-- {% if property.year > 0 %} -->
+        <h2>{{ property.price }} dollars. </h2>  <!-- price {{ property.location }} -->
+        <!-- {% else %} -->
+        <!-- <h2>A {{ property.location }} brand new.</h2> -->
+        <!-- {% endif %} -->
         <p>{{ property.description }}</p>
 
         <div class="property-actions">
             <a href="{% url 'property-update' property.id %}" class="btn warn">Edit</a>
             <a href="{% url 'property-delete' property.id %}" class="btn danger">Delete</a>
-        </div>
     </div>
 </section>
 
@@ -34,13 +33,13 @@
     <section class="appointments">
 
         <div class="subsection-title">
-            <h2>Feedings</h2>
-            <img src="{% static 'images/property-cone.svg' %}" alt="An ice cream cone property" />
+            <h2>Appointments</h2>
+            <!-- <img src="{% static 'images/property-cone.svg' %}" alt="An ice cream cone property" />
             <img src="{% static 'images/property-onigiri.svg' %}" alt="A property as onigiri" />
-            <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" />
+            <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" /> -->
         </div>
 
-        <h3>Add a appointment</h3>
+        <h3>Add an Appointment</h3>
         <form action="{% url 'add-appointment' property.id %}" method="post" class="subsection-content">
             {% csrf_token %}
             {{ appointment_form.as_p }}

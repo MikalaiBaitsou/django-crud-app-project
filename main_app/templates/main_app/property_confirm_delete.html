@@ -1,0 +1,24 @@
+{% extends 'base.html' %}  
+{% load static %} 
+{% block content %}
+
+<div class="page-header">
+  <h1>Delete Property?</h1>
+  <!-- <img src="{% static 'images/nerd-cat.svg' %}" alt="A cat using a computer" /> -->
+</div>
+
+
+<!-- again we have a <lowercase_model> variable or object variable
+in our case cat, which is the cat we want to create-->
+
+<h2>Are you sure you want to delete {{ property.location }}?</h2>
+
+<!-- submits to same url that was used to get the form, and we send the post request
+always, django will take properye of changing it to a delete for us  -->
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <a href="{% url 'properties-detail' property.id %}" class="btn secondary">Cancel</a>
+  <button type="submit" class="btn danger">Yes - Delete!</button>
+</form>
+
+{% endblock %}

@@ -39,7 +39,7 @@ def property_detail(request, property_id):
     appointment_form = AppointmentForm()# creates an instance of form
 
     
-    return render(request, 'properties/detail.html', {'Property': property, 'appointment_form': appointment_form})
+    return render(request, 'properties/detail.html', {'property': property, 'appointment_form': appointment_form})
     
 
 
