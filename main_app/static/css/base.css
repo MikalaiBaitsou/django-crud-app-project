@@ -11,17 +11,17 @@ html {
 }
 
 :root {
-    font-size: 62.5%; /* Sets base font size to 10px */
+    font-size: 50%; /* Sets base font size to 10px */
     --pink-bg: #f28b82; /* Pink background like Cat Collector */
     --text-color: white;
     --link-hover-color: #e0e0e0;
     --button-bg: #ffffff;
     --button-bg-hover: #f0f0f0;
     --submit: #435241; /* Adjusted for better contrast */
-    --warn: #ff6600;
+    --warn: #b46028;
     --danger: #773639;
     --secondary: #393939;
-    --card-box-shadow: 5px 5px 6px -1px #aaa;
+    --card-box-shadow: 10px 5px 6px -1px #aaa;
     --font-xtreme: 4.2rem;
     --font-xxl: 3.6rem;
     --font-xl: 2.4rem;
