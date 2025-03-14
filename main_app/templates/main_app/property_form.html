@@ -6,29 +6,42 @@
 {% block content %}
 
 <div class="page-header">
-
-    
-
     {% if object %}
-    <h1>Edit {{ object.name }}</h1>
+    <h1>Edit {{ object.location }}</h1>
     {% else %}
     <h1>Add a Property</h1>
     {% endif %}
-    
 </div>
 
-<!-- we leave the action blank because the form we submit to the same url 
-that was requested to get the form in our case that would cars/create -->
 <form action="" method="post" class="form-container" enctype="multipart/form-data">
-    <!-- see-surf token (cross site resource foregery token) -->
-    <!-- must be included on all django forms, basically helps django check 
-   that the form came from a known client -->
     {% csrf_token %}
     <table>
-        <!-- we get a form variable that is made based on the model fields we included
-    in our class based view fields attribute  -->
-        <!-- as_table, as_p, as_ul, or just the form with no wrapper tags -->
-        {{ form.as_table }}
+        {% for field in form %}
+        <tr>
+            <th>{{ field.label_tag }}</th>
+            <td>
+                {% if field.name == 'image' %}
+                    <div class="image-field">
+                        {% if field.value %}
+                            <p class="current-image">
+                                Currently: <a href="{{ field.value.url }}" target="_blank">{{ field.value }}</a>
+                            </p>
+                        {% endif %}
+                        <!-- Manually render the file input -->
+                        <input type="file" name="{{ field.name }}" id="{{ field.id_for_label }}" accept="image/*">
+                        {% if field.field.required == False %}
+                            <label class="clear-checkbox">
+                                <input type="checkbox" name="{{ field.html_name }}_clear" id="{{ field.id_for_label }}_clear">
+                                Clear
+                            </label>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
     </table>
     <button type="submit" class="btn submit">Submit!</button>
 </form>

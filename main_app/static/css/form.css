@@ -1,40 +1,101 @@
 .form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: right;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+td {
+    padding: 10px;
+}
+
+.image-field {
     display: flex;
     flex-direction: column;
+    gap: 10px; /* Increased gap for more space between elements */
+}
+
+.current-image {
+    font-size: 1.1em;
+    color: #0066cc;
+    margin: 0;
+}
+
+.current-image a {
+    text-decoration: none;
+}
+
+.current-image a:hover {
+    text-decoration: underline;
+}
+
+.image-field input[type="file"] {
+    font-size: 1em;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     width: 100%;
-  }
-  
-  table {
-    padding: 0 40px;
-    width: 100%;
-    border-spacing: 0 20px;
-  }
-  
-  th {
-    text-align: left;
-    padding: 6px 20px 0 0;
-    font-weight: normal;
-    vertical-align: top;
-    font-size: var(--font-reg);
-  }
-  
-  td {
-    max-width: 60%;
-  }
-  
-  td > * {
-    width: 100%;
-    padding: 2px 4px;
-    font-size: var(--font-l);
-  }
-  
-  td > textarea {
-    height: calc(4 * var(--font-l) + 8px);
-    font-family: inherit;
-  }
-  
-  .btn {
-    align-self: flex-end;
-    margin-right: 40px;
-  }
-  
+    display: inline-block; /* Ensure proper display */
+}
+
+/* Add spacing between "Choose File" button and "No file chosen" text */
+.image-field input[type="file"]::-webkit-file-upload-button {
+    margin-right: 10px; /* Add space after the "Choose File" button */
+}
+
+.image-field input[type="file"]::-moz-file-upload-button {
+    margin-right: 10px; /* For Firefox */
+}
+
+.clear-checkbox {
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 0; /* Remove negative margin to avoid overlap */
+}
+
+.clear-checkbox input[type="checkbox"] {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.submit {
+    background-color: #28a745;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+tr {
+    border-bottom: 1px solid #eee;
+}
+
+tr:last-child {
+    border-bottom: none;
+}

@@ -7,28 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="{% static 'images/splash.svg' %}" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <title>Realtor</title>
-    {% block head %} 
+    <title>Realtor App</title> <!-- Updated title to match branding -->
+    {% block head %}
     {% endblock %}
   </head>
   <body>
-    <header>
-      <div class="header-logo-container">
-        <a href="{% url 'home' %}">
-          
-        </a>
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-logo-container">
+          <a href="{% url 'home' %}" class="nav-brand">Realtor App</a>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="{% url 'properties-index' %}">Properties</a></li>
+            <li><a href="{% url 'property-create' %}">Add Property</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href="{% url 'properties-index' %}">Properties</a></li>
-          <li><a href="{% url 'property-create' %}">Add Property</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-        </ul>
-      </nav>
     </header>
     <main>
-     {% block content %} 
-     {% endblock %}
-     </main>
+      {% block content %}
+      {% endblock %}
+    </main>
   </body>
 </html>
