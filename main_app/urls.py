@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     # localhost:8000, 
     # in the views folder we have home function
-    path('', views.home, name='home'),
+    path('', views.Home.as_view(), name='home'),
     path('about/', views.about, name='about'),
     path('properties/', views.property_index, name='properties-index'),
     # property_id is the name of our param
@@ -20,5 +20,6 @@ urlpatterns = [
     path('properties/<int:property_id>/add_appointment/', views.add_appointment, name='add-appointment'),
     # New URL for deleting an appointment
     path('properties/<int:property_id>/appointments/<int:pk>/delete/', views.AppointmentDelete.as_view(), name='appointment-delete'),
+    path('accounts/signup', views.signup, name='signup'),
      
 ]

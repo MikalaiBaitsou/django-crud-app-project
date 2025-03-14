@@ -1,8 +1,7 @@
 from django.db import models
 
-
-from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 
@@ -12,6 +11,11 @@ class Property(models.Model):
     price = models.IntegerField()  #models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     image = models.ImageField(upload_to='properties/', null=True, blank=True)  # New image field
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def get_absolute_url(self):
+        
+        
+        return reverse('properties-detail', kwargs={'property_id': self.id})
     
 
     def get_absolute_url(self):

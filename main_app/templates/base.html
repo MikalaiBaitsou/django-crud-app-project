@@ -5,9 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <title>Realtor App</title> <!-- Updated title to match branding -->
+    <title>Realtor App</title>
     {% block head %}
     {% endblock %}
   </head>
@@ -17,12 +16,23 @@
         <div class="header-logo-container">
           <a href="{% url 'home' %}" class="nav-brand">Realtor App</a>
         </div>
-
         <nav class="main-nav">
           <ul>
-            <li><a href="{% url 'properties-index' %}">Properties</a></li>
-            <li><a href="{% url 'property-create' %}">Add Property</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'properties-index' %}">Properties</a></li>
+              <li><a href="{% url 'property-create' %}">Add Property</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li>
+                <form action="{% url 'logout' %}" id="logout-form" method="POST">
+                  {% csrf_token %}
+                  <button type="submit" class="nav-link">Log out</button>
+                </form>
+              </li>
+            {% else %}
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'home' %}">Login</a></li>
+              <li><a href="{% url 'signup' %}">Signup</a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>

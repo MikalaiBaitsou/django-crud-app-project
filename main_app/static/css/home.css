@@ -4,110 +4,142 @@ main {
     justify-content: center;
     flex-wrap: wrap;
     height: 100%;
-  }
-  
-  main > section {
+    background-color: blanchedalmond;
+}
+
+main > section {
     width: 100%;
     padding: 10px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
-  
-  
-  .home-container {
+}
+
+.home-container {
     max-width: 800px;
     margin: 20px auto;
     text-align: center;
     padding: 20px;
 }
 
-  .home-container h1 {
+.home-container h1 {
     font-size: var(--font-xxl);
     color: #333;
 }
 
-  .home-container p {
+.home-container p {
     font-size: var(--font-l);
     color: #666;
 }
 
-  .home-image {
+.home-image {
     max-width: 100%;
     height: auto;
     border-radius: var(--card-border-radius);
     margin-top: 20px;
 }
-  
 
-  .header-logo-container {
+.header-logo-container {
     display: none;
-  }
-  
-  .logo-container {
+}
+
+.logo-container {
     max-width: 375px;
-  }
-  
-  .property-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center images horizontally */
+    gap: 10px; /* Space between the two images */
+    margin: 0 auto; /* Ensure centered within parent */
+}
+
+.logo-container .container {
+    width: 200%; /* Ensure container takes full width */
+    display: flex;
+    justify-content: center; /* Center the image inside */
+}
+
+.logo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Specific sizing for images */
+.logo-container .container img {
+    max-width: 90%; /* Increase top image size to 90% of container */
+    height: auto;
+}
+
+.logo-container img:last-child {
+    max-width: 50%; /* Reduce bottom image size to 70% of container */
+}
+
+.property-container {
     width: 80%;
-  }
-  
-  .login {
+}
+
+.login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;
-  }
-  
-  .login h1 {
+}
+
+.login h1 {
     font-size: clamp(3.2rem, 3vw, 4.8rem);
     margin: 10px 0;
-  }
-  
-  .login > p {
+}
+
+.login > p {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 14px 0 0px;
-  }
-  
-  .login label {
+}
+
+.login label {
     font-size: var(--font-reg);
     margin-bottom: 6px;
-  }
-  
-  .login input {
+}
+
+.login input {
     font-size: var(--font-l);
     padding: 2px 4px;
-  }
-  
-  .login .btn {
+}
+
+.login .btn {
     align-self: flex-end;
     margin-right: 0;
     margin-top: 16px;
-  }
-  
-  @media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 768px) {
     main {
-      justify-content: space-around;
+        justify-content: space-around;
     }
-  
+
     main > section {
-      width: 40%;
+        width: 40%;
     }
-  
+
     .login {
-      border: var(--borders);
-      padding: 20px;
-      border-radius: var(--card-border-radius);
-      box-shadow: var(--card-box-shadow);
-      width: 100%;
+        border: var(--borders);
+        padding: 20px;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--card-box-shadow);
+        width: 100%;
     }
-  
+
     .logo-container {
-      max-width: 520px;
+        max-width: 520px;
     }
-  }
-  
+
+    .logo-container .container img {
+        max-width: 90%; /* Maintain larger top image on larger screens */
+    }
+
+    .logo-container img:last-child {
+        max-width: 60%; /* Adjust bottom image size on larger screens */
+    }
+}

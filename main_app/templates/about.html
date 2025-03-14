@@ -3,6 +3,14 @@
 
 {% block head %}
 <style>
+  main {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    background-color: blanchedalmond;
+}
   /* Center all headings and paragraphs */
   h1, .page-content {
     text-align: center;
@@ -14,6 +22,8 @@
   /* Center the image inside the container */
   .logo-container img {
     display: inline-block;
+    width: 30%;
+    display: center;
   }
 </style>
 {% endblock head %}
@@ -26,6 +36,7 @@
        <img src="{% static 'images/logo.png' %}" alt="Text reads: Realtor App" />
     </div>
 </section>
+<hr>
 <p class="page-content">
     Houses for Sale.
 </p>

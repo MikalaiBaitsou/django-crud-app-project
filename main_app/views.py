@@ -1,5 +1,7 @@
 from django.shortcuts import render, reverse
 
+from django.contrib.auth.views import LoginView
+
 
 from django.shortcuts import render, redirect
 
@@ -11,6 +13,40 @@ from django.http import HttpResponse
 from .models import Property, Appointment
 
 from .forms import AppointmentForm, PropertyForm
+
+## AUTHORIZATION
+from django.contrib.auth.decorators import login_required # function based views
+from django.contrib.auth.mixins import LoginRequiredMixin # for CBVS
+
+### Imports for the signup!
+from django.contrib.auth import login # login function
+from django.contrib.auth.forms import UserCreationForm # form instance for creating user
+
+
+
+def signup(request):
+    # view functions can handle multiple http requests
+    error_message = ''
+    # handle the post request (submission of the form)
+    if request.method == "POST":
+        # create a user form object that includes the data from the submitted form
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            # save the form and create the user 
+            # adds a row to the user table
+            user = form.save()
+            # login in the user 
+            login(request, user)
+            # this creates the request.user ^ in all our view functions
+
+            return redirect('properties-index') # cats-index is the name of a path in urls.py
+        else: 
+            error_message = "Invalid sign up - try again"
+    # handling the get request 
+    form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form, 'error_message': error_message})
+
+
 
 
 class PropertyUpdate(UpdateView):
@@ -58,7 +94,7 @@ class AppointmentDelete(DeleteView):
         return context
 
 
-
+@login_required
 def property_detail(request, property_id):
 
     property = Property.objects.get(id=property_id)
@@ -69,7 +105,7 @@ def property_detail(request, property_id):
     return render(request, 'properties/detail.html', {'property': property, 'appointment_form': appointment_form})
     
 
-
+@login_required
 def add_appointment(request, property_id):
     
     form = AppointmentForm(request.POST)
@@ -94,10 +130,9 @@ def property_index(request):
 
     return render(request, 'properties/index.html', {'properties': properties})
 
-def home(request):
-
-    # HttpResponse is like res.send in Express
-    return render(request, 'home.html')
+class Home(LoginView):
+    # specify a template
+    template_name = 'home.html'
 
 
 def about(request):

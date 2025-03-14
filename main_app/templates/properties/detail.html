@@ -2,7 +2,6 @@
 {% load static %}
 
 <!-- add custom css -->
-
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/properties/property-detail.css' %}">
 <style>
@@ -11,43 +10,38 @@
 </style>
 {% endblock head %}
 
-
 {% block content %}
 <section class="property-container">
     <div class="property-img">
-        <!-- <p>Debug: Image = {{ property.image }}</p> -->
+       
         {% if property.image %}
             <img src="{{ property.image.url }}" alt="{{ property.location }}">
         {% else %}
             <p>No image available</p>
         {% endif %}
-       
     </div>
     <div class="property-details">
-        <h1>{{ property.location }}</h1>
-
-        <h1>$ {{ property.price }}</h1>          
-        
-        <h1>{{ property.description }}</h1>
-        
-
+        <div class="centered-details">
+            <h1>{{ property.location }}</h1>
+            <h2>$ {{ property.price }}</h2>
+        </div>
+        <h2>{{ property.description }}</h2>
         <div class="property-actions">
             <a href="{% url 'property-update' property.id %}" class="btn warn">Edit</a>
             <a href="{% url 'property-delete' property.id %}" class="btn danger">Delete</a>
+        </div>
     </div>
 </section>
 
 <!-- Existing property-container above -->
 <div class="appointment-container">
     <section class="appointments">
-
         <div class="subsection-title">
             <h2>Appointments</h2>
             <!-- <img src="{% static 'images/property-cone.svg' %}" alt="An ice cream cone property" />
             <img src="{% static 'images/property-onigiri.svg' %}" alt="A property as onigiri" />
             <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" /> -->
         </div>
-
         <h3>Add an Appointment</h3>
         <form action="{% url 'add-appointment' property.id %}" method="post" class="subsection-content">
             {% csrf_token %}
@@ -62,11 +56,6 @@
                 </tr>
             </thead>
             <tbody>
-
-                <!-- the model that doesn't have the FK (foreign key)
-         can always access the many side by using 
-         related model_set example property.feeding_set.all() -->
-
                 {% for appointment in property.appointment_set.all %}
                 <tr>
                     <td>{{appointment.date}}</td>
@@ -80,8 +69,4 @@
         </table>
     </section>
 </div>
-
-
-
-
 {% endblock content %}

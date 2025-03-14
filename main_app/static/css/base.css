@@ -17,9 +17,9 @@ html {
     --link-hover-color: #e0e0e0;
     --button-bg: #ffffff;
     --button-bg-hover: #f0f0f0;
-    --submit: #26ff00; /* Adjusted for better contrast */
+    --submit: #435241; /* Adjusted for better contrast */
     --warn: #ff6600;
-    --danger: #dc141e;
+    --danger: #773639;
     --secondary: #393939;
     --card-box-shadow: 5px 5px 6px -1px #aaa;
     --font-xtreme: 4.2rem;
@@ -79,20 +79,33 @@ body {
     margin: 0;
     padding: 0;
     gap: 20px;
+    align-items: center; /* Ensure all items are vertically centered */
 }
 
 .main-nav li {
     padding: 5px 0;
 }
 
-.main-nav a {
+.main-nav a,
+.main-nav .nav-link {
     color: var(--text-color); /* White text */
     text-decoration: none;
     font-size: var(--font-l); /* 1.8rem */
     font-weight: 600;
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    padding: 0; /* Remove default button padding */
+    cursor: pointer; /* Ensure button has pointer cursor */
+    line-height: normal; /* Normalize line-height */
 }
 
-.main-nav a:hover {
+.main-nav .nav-link {
+    position: relative;
+    top: 2px; /* Lower the "Log out" button slightly */
+}
+
+.main-nav a:hover,
+.main-nav .nav-link:hover {
     color: var(--link-hover-color); /* Light gray on hover */
     text-decoration: underline;
 }
@@ -183,7 +196,8 @@ h2 {
         font-size: var(--font-xtreme); /* 4.2rem */
     }
 
-    .main-nav a {
+    .main-nav a,
+    .main-nav .nav-link {
         font-size: var(--font-xl); /* 2.4rem */
     }
 

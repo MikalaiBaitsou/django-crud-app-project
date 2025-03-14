@@ -121,6 +121,11 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/media/'  # URL that serves media files
 MEDIA_ROOT = BASE_DIR / 'media'  # Directory where uploaded files are stored
 
+# define this variable to specify where we want the user to go after they login
+LOGIN_REDIRECT_URL = 'properties-index' # <- name of a route!
+# where we want to go after we logout
+LOGOUT_REDIRECT_URL = 'home' # <- name of a route 
+
 
 
 # Default primary key field type
