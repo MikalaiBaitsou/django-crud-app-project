@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Delete Appointment</h1>
+<p>Are you sure you want to delete the appointment on {{ appointment.date }} at {{ appointment.get_appointment_display }}?</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn danger">Yes, Delete</button>
+    <a href="{% url 'properties-detail' property_id=property_id %}" class="btn">Cancel</a>
+</form>
+{% endblock content %}

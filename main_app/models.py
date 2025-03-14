@@ -11,6 +11,7 @@ class Property(models.Model):
     location = models.CharField(max_length=100)
     price = models.IntegerField()  #models.CharField(max_length=100)
     description = models.TextField(max_length=250)
+    image = models.ImageField(upload_to='properties/', null=True, blank=True)  # New image field
     
 
     def get_absolute_url(self):

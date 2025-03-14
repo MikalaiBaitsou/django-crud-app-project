@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 
 
 from django.shortcuts import render, redirect
@@ -8,15 +8,21 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from django.http import HttpResponse
 
-from .models import Property
+from .models import Property, Appointment
 
-from .forms import AppointmentForm
+from .forms import AppointmentForm, PropertyForm
 
 
 class PropertyUpdate(UpdateView):
     model = Property
+
+    form_class = PropertyForm
+
+    def form_valid(self, form):
+        print(f"Form data: {form.cleaned_data}")  # Debug the submitted data
+        return super().form_valid(form)
     
-    fields = ['location', 'price', 'description']
+    # fields = ['location', 'price', 'description']
     
 
 class PropertyDelete(DeleteView):
@@ -27,15 +33,36 @@ class PropertyDelete(DeleteView):
 class PropertyCreate(CreateView):
     
     model = Property
+
+    form_class = PropertyForm
+
+    def form_valid(self, form):
+        print(f"Form data: {form.cleaned_data}")  # Debug the submitted data
+        return super().form_valid(form)
     
-    fields = '__all__' # include all the keys on the Property model in the form
-    
+    # fields = '__all__' # include all the keys on the Property model in the form
+
+
+class AppointmentDelete(DeleteView):
+    model = Appointment
+    template_name = 'properties/appointment_confirm_delete.html'  # Custom template for confirmation
+
+    def get_success_url(self):
+        # Redirect back to the property detail page after deletion
+        property_id = self.kwargs['property_id']
+        return reverse('properties-detail', kwargs={'property_id': property_id})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['property_id'] = self.kwargs['property_id']
+        return context
 
 
 
 def property_detail(request, property_id):
 
     property = Property.objects.get(id=property_id)
+    print(f"Property ID: {property.id}, Price: {property.price}")  # Debug print
     appointment_form = AppointmentForm()# creates an instance of form
 
     

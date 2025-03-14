@@ -6,36 +6,33 @@
 {% endblock %}
 
 {% block content %}
-
 <section class="page-header">
     <h1>Property List</h1>
-    <!-- <img src="{% static 'images/cool-property.svg' %}" alt="A cool property" />
-    <img src="{% static 'images/happy-property.svg' %}" alt="A happy property" />
-    <img src="{% static 'images/teacup-property.svg' %}" alt="A property in a teacup" />
-    <img src="{% static 'images/property-in-box.svg' %}" alt="A property in a box" /> -->
+    
 </section>
 
 <section class="card-container">
     {% for property in properties %}
     <div class="card">
-        <a href="{% url 'properties-detail' property.id %}">
+        <a href="{% url 'properties-detail' property_id=property.id %}">
             <div class="card-content">
                 <div class="card-img-container">
-                    <!-- <img src="{% static 'images/sk8r-boi-property.svg' %}" alt="A skater boy property" /> -->
+                    {% if property.image and property.image.url %}
+                        <img src="{{ property.image.url }}" alt="{{ property.location }}">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
                 </div>
                 <h2 class="card-title">{{ property.location }}</h2>
                 {% if property.price > 0 %}
-                <p>{{ property.price }} dollars</p>  <!--expensive {{ property.location }} -->
-                <!-- {% else %}
-                <p>A {{ property.location }} brand new.</p> -->
-                <!-- {% endif %} -->
-                <p><small>{{ property.description }}</small></p>
+                <p>$ {{ property.price }} </p>
+                {% else %}
+                <p>A {{ property.location }}</p>
+                {% endif %}
+                <p>{{ property.description }}</p>
             </div>
         </a>
     </div>
     {% endfor %}
 </section>
-
-
-
 {% endblock %}

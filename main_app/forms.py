@@ -1,5 +1,6 @@
 from django import forms
 from .models import Appointment
+from .models import Property
 
 class AppointmentForm(forms.ModelForm):
     # meta configuration variable for your class
@@ -16,3 +17,8 @@ class AppointmentForm(forms.ModelForm):
                 }
             )
         }
+
+class PropertyForm(forms.ModelForm):
+    class Meta:
+        model = Property
+        fields = ['location', 'price', 'description', 'image']

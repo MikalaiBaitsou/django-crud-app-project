@@ -18,5 +18,7 @@ urlpatterns = [
     path('properties/<int:pk>/delete/', views.PropertyDelete.as_view(), name='property-delete'),
     # 1 to many creation of a appointment (handling the post request from the appointment form)
     path('properties/<int:property_id>/add_appointment/', views.add_appointment, name='add-appointment'),
+    # New URL for deleting an appointment
+    path('properties/<int:property_id>/appointments/<int:pk>/delete/', views.AppointmentDelete.as_view(), name='appointment-delete'),
      
 ]

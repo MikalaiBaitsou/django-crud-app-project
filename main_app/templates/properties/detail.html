@@ -5,22 +5,31 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/properties/property-detail.css' %}">
+<style>
+    h1 { display: block !important; color: black !important; }
+    .property-img img { max-width: 100%; height: auto; }
+</style>
 {% endblock head %}
 
 
 {% block content %}
 <section class="property-container">
     <div class="property-img">
-        <!-- <img src="{% static 'images/sk8r-boi-property.svg' %}" alt="A skater boy property" /> -->
+        <p>Debug: Image = {{ property.image }}</p>
+        {% if property.image %}
+            <img src="{{ property.image.url }}" alt="{{ property.location }}">
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+       
     </div>
     <div class="property-details">
         <h1>{{ property.location }}</h1>
-        <!-- {% if property.year > 0 %} -->
-        <h2>{{ property.price }} dollars. </h2>  <!-- price {{ property.location }} -->
-        <!-- {% else %} -->
-        <!-- <h2>A {{ property.location }} brand new.</h2> -->
-        <!-- {% endif %} -->
-        <p>{{ property.description }}</p>
+
+        <h1>$ {{ property.price }}</h1>          
+        
+        <h1>{{ property.description }}</h1>
+        
 
         <div class="property-actions">
             <a href="{% url 'property-update' property.id %}" class="btn warn">Edit</a>
@@ -62,6 +71,9 @@
                 <tr>
                     <td>{{appointment.date}}</td>
                     <td>{{appointment.get_appointment_display}}</td>
+                    <td>
+                        <a href="{% url 'appointment-delete' property_id=property.id pk=appointment.id %}" class="btn danger">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
