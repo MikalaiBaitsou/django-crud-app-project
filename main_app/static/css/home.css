@@ -15,6 +15,32 @@ main {
     flex-direction: column;
   }
   
+  
+  .home-container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+  .home-container h1 {
+    font-size: var(--font-xxl);
+    color: #333;
+}
+
+  .home-container p {
+    font-size: var(--font-l);
+    color: #666;
+}
+
+  .home-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--card-border-radius);
+    margin-top: 20px;
+}
+  
+
   .header-logo-container {
     display: none;
   }

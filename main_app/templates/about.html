@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block head %}
+<style>
+  /* Center all headings and paragraphs */
+  h1, .page-content {
+    text-align: center;
+  }
+  /* Center the logo container */
+  .logo-container {
+    text-align: center;
+  }
+  /* Center the image inside the container */
+  .logo-container img {
+    display: inline-block;
+  }
+</style>
+{% endblock head %}
 
 {% block content %}
-<h1>About Realtor App</h1>
+<h1>Realtor App</h1>
 <hr>
+<section class="logo-container">
+    <div class="container">    
+       <img src="{% static 'images/logo.png' %}" alt="Text reads: Realtor App" />
+    </div>
+</section>
 <p class="page-content">
     Houses for Sale.
 </p>
