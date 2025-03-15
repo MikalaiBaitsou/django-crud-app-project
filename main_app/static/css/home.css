@@ -1,81 +1,57 @@
 main {
+    position: relative; /* For absolute positioning of children */
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    height: 100%;
-    background-color: blanchedalmond;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Fallback color */
 }
 
-main > section {
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 10px 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    height: 100%;
+    background-image: url('../images/homepage.jpg'); /* Path to your image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    filter: blur(4px); /* Apply blur effect to the background only */
+    -webkit-filter: blur(4px); /* For Safari */
+    z-index: 1; /* Behind the login box */
 }
 
-.home-container {
-    max-width: 800px;
-    margin: 20px auto;
+/* Semi-transparent overlay to improve readability */
+.background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Dark overlay for contrast */
+    z-index: 2; /* Behind the login box but above the background */
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    z-index: 3; /* Above the background and overlay */
+    width: 90%;
+    max-width: 500px; /* Slightly narrower to match the screenshot */
+    padding: 40px; /* More padding for a spacious feel */
+    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
     text-align: center;
-    padding: 20px;
-}
-
-.home-container h1 {
-    font-size: var(--font-xxl);
-    color: #333;
-}
-
-.home-container p {
-    font-size: var(--font-l);
-    color: #666;
-}
-
-.home-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--card-border-radius);
-    margin-top: 20px;
-}
-
-.header-logo-container {
-    display: none;
-}
-
-.logo-container {
-    max-width: 375px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center images horizontally */
-    gap: 10px; /* Space between the two images */
-    margin: 0 auto; /* Ensure centered within parent */
-}
-
-.logo-container .container {
-    width: 200%; /* Ensure container takes full width */
-    display: flex;
-    justify-content: center; /* Center the image inside */
-}
-
-.logo-container img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Specific sizing for images */
-.logo-container .container img {
-    max-width: 90%; /* Increase top image size to 90% of container */
-    height: auto;
-}
-
-.logo-container img:last-child {
-    max-width: 50%; /* Reduce bottom image size to 70% of container */
-}
-
-.property-container {
-    width: 80%;
+    filter: none; /* Ensure no blur */
+    -webkit-filter: none; /* For Safari */
 }
 
 .login {
@@ -83,63 +59,84 @@ main > section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
 }
 
 .login h1 {
     font-size: clamp(3.2rem, 3vw, 4.8rem);
     margin: 10px 0;
+    color: #ffffff; /* White text for contrast */
+    font-weight: bold;
 }
 
-.login > p {
+.login p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 14px 0 0px;
+    margin: 14px 0 0;
 }
 
 .login label {
-    font-size: var(--font-reg);
+    font-size: 1.8rem; /* Larger labels */
+    font-weight: bold;
+    color: #ffffff; /* White text */
     margin-bottom: 6px;
 }
 
 .login input {
-    font-size: var(--font-l);
-    padding: 2px 4px;
+    font-size: 1.6rem; /* Larger input text */
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #4a90e2; /* Blue border for inputs */
+    border-radius: 5px;
+    background-color: #ffffff; /* White background for inputs */
+    box-sizing: border-box;
+    color: #333333; /* Dark text inside inputs */
 }
 
 .login .btn {
-    align-self: flex-end;
-    margin-right: 0;
-    margin-top: 16px;
+    margin-top: 20px; /* More spacing above button */
+    padding: 12px 24px;
+    background-color: #4a90e2; /* Blue button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px; /* Slightly rounded */
+    font-size: 1.8rem; /* Larger button text */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width button like in the screenshot */
+    max-width: 200px; /* Limit button width */
+    margin-top: 30px;
+}
+
+.login .btn.submit {
+    background-color: #4a90e2; /* Keep blue for consistency with screenshot */
+}
+
+.login .btn:hover {
+    background-color: #2e6da4; /* Darker blue on hover */
+}
+
+.login .btn.submit:hover {
+    background-color: #2e6da4; /* Darker blue on hover */
+}
+
+/* Remove unused styles */
+.home-container,
+.home-image,
+.header-logo-container,
+.logo-container,
+.logo-container .container,
+.logo-container img,
+.logo-container .container img,
+.logo-container img:last-child,
+.property-container {
+    display: none; /* These are no longer used */
 }
 
 @media only screen and (min-width: 768px) {
-    main {
-        justify-content: space-around;
-    }
-
-    main > section {
-        width: 40%;
-    }
-
-    .login {
-        border: var(--borders);
-        padding: 20px;
-        border-radius: var(--card-border-radius);
-        box-shadow: var(--card-box-shadow);
-        width: 100%;
-    }
-
-    .logo-container {
-        max-width: 520px;
-    }
-
-    .logo-container .container img {
-        max-width: 90%; /* Maintain larger top image on larger screens */
-    }
-
-    .logo-container img:last-child {
-        max-width: 60%; /* Adjust bottom image size on larger screens */
+    .login-container {
+        width: 70%; /* Slightly narrower on larger screens */
+        max-width: 400px; /* Adjust for better fit */
     }
 }

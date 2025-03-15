@@ -1,4 +1,6 @@
-from django.urls import path
+from django.contrib import admin
+
+from django.urls import path, include
 # import all the functions in views file
 # as methods on a views object
 from . import views
@@ -21,5 +23,9 @@ urlpatterns = [
     # New URL for deleting an appointment
     path('properties/<int:property_id>/appointments/<int:pk>/delete/', views.AppointmentDelete.as_view(), name='appointment-delete'),
     path('accounts/signup', views.signup, name='signup'),
+    # new addition for failed log in
+    
+    
+    path('accounts/', include('django.contrib.auth.urls')),  # Add auth URLs
      
 ]

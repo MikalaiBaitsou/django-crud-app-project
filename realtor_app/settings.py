@@ -55,7 +55,7 @@ ROOT_URLCONF = 'realtor_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Ensure templates directory is included
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,6 +118,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 MEDIA_URL = '/media/'  # URL that serves media files
 MEDIA_ROOT = BASE_DIR / 'media'  # Directory where uploaded files are stored
 
@@ -125,6 +127,12 @@ MEDIA_ROOT = BASE_DIR / 'media'  # Directory where uploaded files are stored
 LOGIN_REDIRECT_URL = 'properties-index' # <- name of a route!
 # where we want to go after we logout
 LOGOUT_REDIRECT_URL = 'home' # <- name of a route 
+
+
+# Authentication settings
+LOGIN_URL = '/accounts/login/'  # Default login URL
+LOGIN_REDIRECT_URL = '/'  # Redirect after login (e.g., homepage)
+LOGOUT_REDIRECT_URL = '/'  # Redirect after logout
 
 
 

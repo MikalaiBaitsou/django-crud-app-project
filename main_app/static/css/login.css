@@ -1,0 +1,123 @@
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 3.2rem; /* Larger title */
+    color: #333333; /* Dark gray for contrast */
+}
+
+.page-header img {
+    width: 120px; /* Larger logo */
+    height: auto;
+    margin-top: 20px;
+    opacity: 1; /* Ensure logo is fully visible */
+    filter: none; /* Remove any gray filter */
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f0f4f8; /* Softer blue-gray background */
+    border: 2px solid #4a90e2; /* Blue border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.red-text {
+    font-size: 1.6rem; /* Larger error message */
+    color: #e74c3c; /* Red for errors */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: right;
+    padding: 15px;
+    font-size: 1.8rem; /* Larger label text */
+    font-weight: bold;
+    vertical-align: top;
+    color: #2c3e50; /* Darker blue-gray for labels */
+}
+
+td {
+    padding: 15px;
+}
+
+td input[type="text"],
+td input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.6rem; /* Larger input text */
+    border: 1px solid #4a90e2; /* Blue border for inputs */
+    border-radius: 5px;
+    background-color: #ffffff; /* White background */
+    box-sizing: border-box;
+}
+
+td ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+}
+
+td li {
+    font-size: 1.4rem; /* Larger help text */
+    color: #666666; /* Medium gray for help text */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px 0;
+    background-color: #4a90e2; /* Blue background */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.8rem; /* Larger button text */
+    transition: background-color 0.3s;
+}
+
+.btn.submit {
+    background-color: #27ae60; /* Green background */
+}
+
+.btn:hover {
+    background-color: #2e6da4; /* Darker blue on hover */
+}
+
+.btn.submit:hover {
+    background-color: #219653; /* Darker green on hover */
+}
+
+tr {
+    border-bottom: 2px solid #e0e0e0;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+.signup-prompt {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.6rem;
+    color: #333333;
+}
+
+.signup-prompt a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.signup-prompt a:hover {
+    text-decoration: underline;
+}
