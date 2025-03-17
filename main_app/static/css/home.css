@@ -36,6 +36,7 @@ main {
     z-index: 2; /* Behind the login box but above the background */
 }
 
+/* Login Container (for unauthenticated users) */
 .login-container {
     position: absolute;
     top: 50%;
@@ -104,13 +105,12 @@ main {
     font-size: 1.8rem; /* Larger button text */
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%; /* Full width button like in the screenshot */
+    width: 100%; /* Full width button */
     max-width: 200px; /* Limit button width */
-    margin-top: 30px;
 }
 
 .login .btn.submit {
-    background-color: #4a90e2; /* Keep blue for consistency with screenshot */
+    background-color: #4a90e2; /* Keep blue for consistency */
 }
 
 .login .btn:hover {
@@ -118,6 +118,59 @@ main {
 }
 
 .login .btn.submit:hover {
+    background-color: #2e6da4; /* Darker blue on hover */
+}
+
+/* Welcome Container (for authenticated users) */
+.welcome-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    z-index: 3; /* Above the background and overlay */
+    width: 90%;
+    max-width: 500px; /* Match login container */
+    padding: 40px; /* Match login container */
+    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    text-align: center;
+    filter: none; /* Ensure no blur */
+    -webkit-filter: none; /* For Safari */
+}
+
+.welcome-container h1 {
+    font-size: clamp(3.2rem, 3vw, 4.8rem);
+    margin: 0 0 10px;
+    color: #ffffff; /* White text */
+    font-weight: bold;
+}
+
+.welcome-container p {
+    font-size: 1.6rem; /* Slightly larger text */
+    color: #e0e0e0; /* Light gray for contrast */
+    margin-bottom: 20px;
+}
+
+.options-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between buttons */
+}
+
+.option-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4a90e2; /* Blue button */
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.8rem; /* Larger button text */
+    transition: background-color 0.3s;
+}
+
+.option-btn:hover {
     background-color: #2e6da4; /* Darker blue on hover */
 }
 
@@ -135,8 +188,19 @@ main {
 }
 
 @media only screen and (min-width: 768px) {
-    .login-container {
+    .login-container,
+    .welcome-container {
         width: 70%; /* Slightly narrower on larger screens */
         max-width: 400px; /* Adjust for better fit */
+    }
+
+    .options-box {
+        flex-direction: row; /* Horizontal layout on larger screens */
+        justify-content: center;
+        gap: 20px; /* More space between buttons */
+    }
+
+    .option-btn {
+        width: 150px; /* Fixed width for consistency */
     }
 }

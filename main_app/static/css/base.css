@@ -1,4 +1,7 @@
 /* static/css/base.css */
+main {
+    background-color: blanchedalmond;
+}
 
 html {
     box-sizing: border-box;

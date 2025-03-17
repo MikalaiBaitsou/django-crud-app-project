@@ -8,7 +8,6 @@
 {% block content %}
 <section class="page-header">
     <h1>Property List</h1>
-    
 </section>
 
 <section class="card-container">
@@ -25,13 +24,18 @@
                 </div>
                 <h2 class="card-title">{{ property.location }}</h2>
                 {% if property.price > 0 %}
-                <p>$ {{ property.price }} </p>
+                <p>$ {{ property.price }}</p>
                 {% else %}
                 <p>A {{ property.location }}</p>
                 {% endif %}
                 <p>{{ property.description }}</p>
             </div>
         </a>
+        <!-- Add Edit and Delete buttons -->
+        <div class="button-group">
+            <a href="{% url 'property-update' pk=property.pk %}" class="btn edit-btn">Edit</a>
+            <a href="{% url 'property-delete' pk=property.pk %}" class="btn delete-btn">Delete</a>
+        </div>
     </div>
     {% endfor %}
 </section>

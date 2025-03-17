@@ -6,25 +6,17 @@ from django.contrib.auth.models import User
 
 
 class Property(models.Model):
-    # define the columns, and the datatypes enforeced in each row
     location = models.CharField(max_length=100)
-    price = models.IntegerField()  #models.CharField(max_length=100)
+    price = models.IntegerField()
     description = models.TextField(max_length=250)
-    image = models.ImageField(upload_to='properties/', null=True, blank=True)  # New image field
+    image = models.ImageField(upload_to='properties/', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    def get_absolute_url(self):
-        
-        
-        return reverse('properties-detail', kwargs={'property_id': self.id})
-    
 
     def get_absolute_url(self):
-        
         return reverse('properties-detail', kwargs={'property_id': self.id})
 
     def __str__(self):
         return self.location
-
 # all caps tells other python developers don't change this 
 # variable (python convention)
 APPOINTMENTSFORM = (
