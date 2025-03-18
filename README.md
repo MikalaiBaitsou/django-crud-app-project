@@ -55,9 +55,9 @@ Log in or sign up to view or create property listings.
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
 
-## :video_game: Website Link 
+## :video_game: Website Link
 
-[https://mikalaibaitsou.github.io/browser-based-game-project/](https://ga-realtor-lab-project-a5a95463882b.herokuapp.com/)
+https://ga-realtor-lab-project-a5a95463882b.herokuapp.com/
 
 ## :artificial_satellite: Upcoming Features
 
