@@ -1,14 +1,15 @@
 <div id="header" align="center">
-<img src="https://github.com/user-attachments/assets/f40334dc-cf39-4dd7-ab31-baff0475c364" width="800" height="300">
+
+![Screenshot 2025-03-18 113111](https://github.com/user-attachments/assets/babf9a4a-fe7d-4f50-b285-e9563ecb6bea)
 
 </div>
 
 <div align="center" id="header">
    
-# HANGMAN
+# Realtor_App
 
 **Created by [Mikalai Baitsou](https://www.linkedin.com/in/mikalai-baitsou-6a8803345)**
-### [CLICK TO PLAY](https://mikalaibaitsou.github.io/browser-based-game-project/)
+### [CLICK TO VIEW](https://mikalaibaitsou.github.io/browser-based-game-project/)
 
 
 </div>
@@ -29,17 +30,19 @@
 
 ## :notebook_with_decorative_cover: Description   
 
-A hangman game where the player must guess a words from a hint provided and type that word out using an on-screen keyboard.  
+A Realtor App where a user can view and list properies with images and description.  
 
-## :question: How to Win
+## :question: How it Works
 
-Guess the word correctly from the hint, you have 6 tries. 
+Log in or sign up to view or create property listings.
 
 ## :camera: Screenshots
 
-![image](https://github.com/user-attachments/assets/108a3039-c999-4ae1-91f5-5620b80eb094)
+![Screenshot 2025-03-18 113144](https://github.com/user-attachments/assets/b88d736c-e086-4bbd-a65d-95e3161b80eb)
 
-![Screenshot 2025-01-08 100205](https://github.com/user-attachments/assets/e2210d90-e59e-4081-b1fc-ddf967223bb4)
+
+![Screenshot 2025-03-18 113820](https://github.com/user-attachments/assets/e473479d-4db5-4c6a-bb66-41752e04d4c1)
+
 
 
 ## :desktop_computer: Technologies Used
@@ -52,20 +55,19 @@ Guess the word correctly from the hint, you have 6 tries.
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
 
-## :video_game: Game Link 
+## :video_game: Website Link 
 
-https://mikalaibaitsou.github.io/browser-based-game-project/
+[https://mikalaibaitsou.github.io/browser-based-game-project/](https://ga-realtor-lab-project-a5a95463882b.herokuapp.com/)
 
 ## :artificial_satellite: Upcoming Features
 
 
--  Add game mode for kids and for grown ups
--  Add more colors
+-  Add search feature.
+-  Add more pictures to listings.
 
 ## :loud_sound: Attributions
 
-- All sounds are taken from https://freesound.org/
-- Image was uploaded to https://imgbb.com/
+- Images are taken from https://stock.adobe.com/
   
 
 
