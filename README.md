@@ -47,7 +47,8 @@ Log in or sign up to view or create property listings.
 
 ## :desktop_computer: Technologies Used
 
-![Django](url-to-django-logo.png)
+![django](https://github.com/user-attachments/assets/353eeb18-d63a-490c-b56b-2ad41f89efa9)
+
 ![CSS3](https://img.shields.io/badge/-CSS_Grid-05122A?style=flat&logo=css3) 
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)  
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
