@@ -9,7 +9,7 @@
 # Realtor_App
 
 **Created by [Mikalai Baitsou](https://www.linkedin.com/in/mikalai-baitsou-6a8803345)**
-### [CLICK TO VIEW](https://mikalaibaitsou.github.io/browser-based-game-project/)
+### [CLICK TO VIEW](https://ga-realtor-lab-project-a5a95463882b.herokuapp.com/)
 
 
 </div>
