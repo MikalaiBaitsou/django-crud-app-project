@@ -122,3 +122,6 @@ tr:last-child {
     text-decoration: underline;
 }
 
+.custom-error {
+    color: white;
+}

@@ -9,6 +9,10 @@ main {
     background-color: #f0f0f0; /* Fallback color */
 }
 
+.custom-error {
+    color: white;
+}
+
 .background-image {
     position: absolute;
     top: 0;

@@ -22,6 +22,7 @@
     <section class="login-container">
         <form action="{% url 'home' %}" method="POST" class="login">
             <h1>Login</h1>
+            <h2 class="custom-error">Please enter a correct username and password.</h2>
             {% csrf_token %}
             {{ form.as_p }}
             <input type="hidden" name="next" value="{{ next }}">

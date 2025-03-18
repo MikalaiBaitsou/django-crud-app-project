@@ -11,9 +11,9 @@
     <img src="{% static 'images/logging.png' %}" alt="A house logging into a computer" />
 </div>
 
-{% if form.non_field_errors %}
-    <p class="custom-error">Please enter a correct username and password. Note that both fields may be case-sensitive.</p>
-{% endif %}
+
+    <h3 class="custom-error">Please enter a correct username and password.</h3>
+
 
 <form method="post" class="form-container" autocomplete="off">
     {% csrf_token %}
